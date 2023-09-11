@@ -1,4 +1,4 @@
-## The classic challeging 2048 
+## The classic challenging 2048 
 
 ## :thinking: Do you want to add a feature or fix a bug?
 **Fork this repository**

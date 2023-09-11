@@ -1,6 +1,6 @@
 ## The challenging 2048 
 
-2048 is a classical mathematical game where you have multiple of 2 in a delimated space so they be added until you arrive at 2048
+2048 is a classical mathematical game where you have multiple of 2 in a delimated space so they be added in order as they arrive at 2048
 
 ## :thinking: Do you want to add a feature or fix a bug?
 **Fork this repository**

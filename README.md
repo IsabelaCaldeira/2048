@@ -24,5 +24,6 @@ After your pull request is merged, you can delete your branch.
 ## :zap: To execute the game:
 
 ```bash
+$ python3 main.py
 # Have Fun!
 ```

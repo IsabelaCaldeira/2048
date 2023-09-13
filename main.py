@@ -13,6 +13,7 @@ font = pygame.font.Font('freesansbold.ttf', 24)
 timer = pygame.time.Clock()
 fps = 60
 
+#2048 game color library
 colors = {0: (204, 192, 179),
           2: (238, 228, 218),
           4: (237, 224, 200),
@@ -29,16 +30,31 @@ colors = {0: (204, 192, 179),
           'dark text': (119, 118, 101),
           'other': (0, 0, 0),
           'bg': (187, 173, 160)}
-          
+
+
+#Iniciation game variables
+board_values = [[0 for _ in range(4)] for _ in range(4)]
 
 #Drawing the background for the board
 def draw_board():
-    pygame.draw.rect(screen,(200, 200, 200) [0 ,0, 400, 400], 0, 10)
+    pygame.draw.rect(screen, colors['bg'], [0 ,0, 400, 400], 0, 10)
     pass
 
 #Drawing the numbers(objects)
-def draw_pieces():
-    pass
+def draw_pieces(board):
+    for i in range(4):
+        for j in range(4):
+            value = board[i][j]
+            if value > 8:
+                value_color = colors['light text']
+            else:
+                value_color = colors['dark text']
+            if value <= 2048:
+                color = colors[value]
+            else:
+                color = colors['other']
+                
+            pygame.draw.rect(screen, color, [])
 
 #Adding new numbers randomly
 def spawn_pieces():
@@ -51,7 +67,7 @@ while run:
     screen.fill("gray")
     
     draw_board()
-    draw_pieces()
+    draw_pieces(board_values)
     spawn_pieces()
     
     for event in pygame.event.get():

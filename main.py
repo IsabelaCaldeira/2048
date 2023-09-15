@@ -27,7 +27,7 @@ colors = {0: (204, 192, 179),
           1024: (237, 197, 63),
           2048: (237, 194, 46),
           'light text': (249, 246, 242),
-          'dark text': (119, 118, 101),
+          'dark text': (119, 110, 101),
           'other': (0, 0, 0),
           'bg': (187, 173, 160)}
 
@@ -54,7 +54,14 @@ def draw_pieces(board):
             else:
                 color = colors['other']
                 
-            pygame.draw.rect(screen, color, [])
+            pygame.draw.rect(screen, color, [j * 95 + 20, i * 95 + 20, 75, 75], 0, 5)
+            if value > 0:
+                value_len = len(str(value))
+                font = pygame.font.Font('freesansbold.ttf', 48 - ( 5 * value_len))
+                value_text = font.render(str(value), True, value_color)
+                text_rect = value_text.get_rect(center = (j * 95 + 57, i * 95 + 57))
+                screen.blit(value_text, text_rect) 
+            
 
 #Adding new numbers randomly
 def spawn_pieces():

@@ -75,8 +75,9 @@ while run:
     
     draw_board()
     draw_pieces(board_values)
-    spawn_pieces()
-    
+    if spawn_pieces:
+        new_pieces(board_values)
+        
     for event in pygame.event.get():
         if event.type == pygame.QUIT:
             run = False

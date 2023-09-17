@@ -35,10 +35,18 @@ colors = {0: (204, 192, 179),
 #Iniciation game variables
 board_values = [[0 for _ in range(4)] for _ in range(4)]
 
+
+#Adding new pieces randomly
+def spawn_pieces(board):
+    
+    return board
+
+
 #Drawing the background for the board
 def draw_board():
     pygame.draw.rect(screen, colors['bg'], [0 ,0, 400, 400], 0, 10)
     pass
+
 
 #Drawing the numbers(objects)
 def draw_pieces(board):
@@ -63,10 +71,6 @@ def draw_pieces(board):
                 screen.blit(value_text, text_rect) 
             
 
-#Adding new numbers randomly
-def spawn_pieces():
-    pass
-
 #Main game loop
 run = True
 while run:
@@ -76,7 +80,8 @@ while run:
     draw_board()
     draw_pieces(board_values)
     if spawn_pieces:
-        new_pieces(board_values)
+        boards value = new_pieces(board_values)
+        spwan_new = false
         
     for event in pygame.event.get():
         if event.type == pygame.QUIT:

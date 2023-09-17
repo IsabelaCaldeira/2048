@@ -35,20 +35,25 @@ colors = {0: (204, 192, 179),
 #Iniciation game variables
 board_values = [[0 for _ in range(4)] for _ in range(4)]
 game_over = False
+spawn_new = True
+init_count = 0 
 
 
 #Adding new pieces randomly
-def spawn_pieces(board):
-    space = False
-    while any(0 in row for row in board):
+def add_pieces(board):
+    count = 0
+    space = True
+    while any(0 in row for row in board) and count < 1:
         row = random.randint(0, 3)
-        col = random.randit(0, 3)
+        col = random.randint(0, 3)
         if board[row][col] == 0:
-            space = True
-            if random.randit(1, 10) == 10:
+            count += 1 
+            if random.randint(1, 10) == 10:
                 board[row][col] = 4
             else:
                 board[row][col] = 2
+    if count < 1:
+        space = False
     return board, space
 
 
@@ -89,10 +94,11 @@ while run:
     
     draw_board()
     draw_pieces(board_values)
-    if spawn_pieces:
-        boards value = new_pieces(board_values)
-        spwan_new = false
-        
+    
+    if spawn_new or init_count < 2:
+        boards_value, game_over = add_pieces(board_values)
+        spawn_new = False
+        init_count += 1
     for event in pygame.event.get():
         if event.type == pygame.QUIT:
             run = False

@@ -99,9 +99,24 @@ while run:
         boards_value, game_over = add_pieces(board_values)
         spawn_new = False
         init_count += 1
+        
+        
     for event in pygame.event.get():
         if event.type == pygame.QUIT:
             run = False
+            
+        if event.type == pygame.KEYUP:
+            if event.key == pygame.K_UP:
+                direction = 'UP'
+        if event.type == pygame.KEYUP:
+            if event.key == pygame.K_DOWN:
+                direction = 'DOWN'
+        if event.type == pygame.KEYUP:
+            if event.key == pygame.K_LEFT:
+                direction = 'LEFT'
+        if event.type == pygame.KEYUP:
+            if event.key == pygame.K_RIGHT:
+                direction = 'RIGHT'
             
     pygame.display.flip()
 pygame.quit()
